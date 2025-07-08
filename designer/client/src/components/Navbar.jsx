@@ -12,9 +12,9 @@ const Navbar = () => {
 
     const navLinks = [
         { name: "HOME", hasDropdown: true, items: ["HOME 1", "HOME 2"] },
-        { name: "PAGES", hasDropdown: true, items: ["PAGE 1", "PAGE 2"] },
+        { name: "PAGES", hasDropdown: true, items: ["PAGE 1", "PAGE 2", "PAGE 3"] },
         { name: "TRACKING", hasDropdown: false },
-        { name: "SERVICES", hasDropdown: true, items: ["SERVICE 1", "SERVICE 2"] },
+        { name: "SERVICES", hasDropdown: true, items: ["SERVICE 1", "SERVICE 2", "SERVICE 3", "SERVICE 4"] },
         { name: "BLOG", hasDropdown: true, items: ["BLOG LIST", "SINGLE BLOG"] },
     ];
 
@@ -59,8 +59,8 @@ const Navbar = () => {
                             )
                         )}
 
-                        {/* Right Buttons */}
-                        <div className="flex space-x-2 ml-6">
+                        {/* right buttons */}
+                        <div className="flex space-x-2 gap-x-4 ">
                             <Link
                                 to="/quote"
                                 className="px-4 py-3 bg-yellow-400 text-white rounded-sm hover:bg-yellow-500 font-medium text-base"
@@ -76,7 +76,7 @@ const Navbar = () => {
                         </div>
                     </nav>
 
-                    {/* Mobile Hamburger */}
+                    {/* Mobile togglebar */}
                     <div className="md:hidden">
                         <button onClick={toggleMenu} className='text-2xl'>{menuOpen?<FaRegWindowClose /> : <FaBars />}</button>
                     </div>
