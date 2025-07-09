@@ -1,6 +1,28 @@
-import img from '../assets/img/port.jpg';
+import { useEffect, useState } from 'react';
+import img from '../assets/img/port_1.jpg';
+import img2 from '../assets/img/port_2.jpg';
+import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 
 const HomeOne = () => {
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const images = [img, img2];
+    const [fade, setFade] = useState(true);
+
+    const handlePrevious = () => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+    }
+    const handleNext = () => {
+        setCurrentIndex((prev) => prev === 0 ? images.length - 1 : prev - 1);
+    }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNext();
+        }, 5000);
+
+        return () => clearInterval(interval) // cleanup on unmount,
+    }, [images.length]);
+
     return (
         <>
             <section className="w-full bg-white py-0.5">
@@ -16,18 +38,30 @@ const HomeOne = () => {
                             </div>
                         </div>
                     </div>
-
-                    <div className="md:w-2/3 z-10 flex md:flex-col md:order-2 order-1">
+                    <div className="md:w-2/3 z-10 flex md:flex-col md:order-2 order-1 relative md:static">
                         <img
-                            src={img}
+                            src={images[currentIndex]}
                             alt="Logistics"
-                            className="shadow-lg md:max-w-[98%] md:h-[88.5vh] md:pr-1.5"
+                            className="shadow-lg md:max-w-[98%] md:h-[88.5vh] h-[50vh] md:pr-1.5"
                         />
-
-                        {/* Vertical Right Text */}
                         <span className="hidden md:block absolute text-black text-base font-extrabold tracking-normal rotate-180 right-0.5 top-1/2 -translate-y-1/2" style={{ writingMode: 'vertical-rl' }}>
                             #CARGO LOGISTIC
                         </span>
+                        <div className="md:hidden flex flex-row items-center justify-center w-1/3 bg-yellow-400 absolute bottom-0 left-0 py-5 z-30">
+                            <span className="text-white text-base">
+                                {currentIndex + 1} / {images.length}
+                            </span>
+                            <FaLongArrowAltLeft className="text-white hover:cursor-pointer ml-2 text-xl" onClick={handlePrevious} />
+                            <FaLongArrowAltRight className="text-white hover:cursor-pointer ml-2 text-xl" onClick={handleNext} />
+                        </div>
+                    </div>
+
+                    <div className="hidden md:flex flex-row items-center justify-center w-1/8 bg-yellow-400 absolute bottom-0 left-0 py-5 z-30">
+                        <span className="text-white text-base">
+                            {currentIndex + 1} / {images.length}
+                        </span>
+                        <FaLongArrowAltLeft className="text-white hover:cursor-pointer ml-2 text-xl" onClick={handlePrevious} />
+                        <FaLongArrowAltRight className="text-white hover:cursor-pointer ml-2 text-xl" onClick={handleNext} />
                     </div>
                 </div>
             </section>
