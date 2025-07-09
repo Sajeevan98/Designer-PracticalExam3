@@ -95,7 +95,6 @@ const Service = () => {
     return (
         <>
             <section className="w-full bg-white py-12 px-0.5">
-
                 <div className='border-2 border-gray-200 md:px-16 md:py-3 p-10 shadow'>
                     <h1 className='text-lime-500 text-xs font-bold text-center'>Real Solution, Real Fast !</h1>
                     <h2 className='text-black text-3xl font-bold text-center mt-1.5'>Best Global Logistics Solutions.</h2>
@@ -153,7 +152,7 @@ const Service = () => {
                         </div>
                     </div>
                 </div>
-                <div className='grid md:grid-rows-1 md:grid-cols-4 grid-rows-2 grid-cols-2 justify-around border-4 border-gray-100 p-10 '>
+                <div className='grid md:grid-cols-4 grid-cols-2 justify-around border-4 border-gray-100 p-10 md:mt-26'>
                     {statsData && statsData.map((data) => (
                         <Stats key={data.id} number={data.number} string1={data.string1} string2={data.string2} />
                     ))

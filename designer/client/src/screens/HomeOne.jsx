@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import img from '../assets/img/port_1.jpg';
-import img2 from '../assets/img/port_2.jpg';
+import img1 from '../assets/img/home_1.jpg';
+import img2 from '../assets/img/home_2.jpg';
+import img3 from '../assets/img/home_3.jpg';
+import img4 from '../assets/img/home_4.jpg';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 
 const HomeOne = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const images = [img, img2];
+    const images = [img1, img2, img3, img4];
     const [fade, setFade] = useState(true);
 
     const handlePrevious = () => {

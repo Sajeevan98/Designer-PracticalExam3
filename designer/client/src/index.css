@@ -3,3 +3,34 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: ease-out;
+  }
+}
+
+.bounce-slow {
+  animation: bounce 5s infinite;
+}
+
+
+@keyframes fly {
+  0% {
+    transform: translatex(0);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translatex(25%);
+    animation-timing-function: ease-out;
+  }
+}
+
+.fly-slow {
+  animation: fly 5s infinite;
+}
