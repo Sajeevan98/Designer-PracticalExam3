@@ -94,7 +94,7 @@ const Service = () => {
 
     return (
         <>
-            <section className="w-full bg-white py-12 px-0.5">
+            <section id="service" className="w-full bg-white py-12 px-0.5">
                 <div className='border-2 border-gray-200 md:px-16 md:py-3 p-10 shadow'>
                     <h1 className='text-lime-500 text-xs font-bold text-center'>Real Solution, Real Fast !</h1>
                     <h2 className='text-black text-3xl font-bold text-center mt-1.5'>Best Global Logistics Solutions.</h2>

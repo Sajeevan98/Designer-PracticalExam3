@@ -165,7 +165,7 @@ const socialData = [
 
 const Footer = () => {
     return (
-        <section className='md:px-28 px-3 py-2 bg-slate-500 mt-20'>
+        <section id="footer" className='md:px-28 px-3 py-2 bg-slate-500 mt-20'>
 
             {/* 1st line */}
             <div className='flex md:flex-row flex-col text-white w-full justify-between mt-2'>

@@ -9,7 +9,6 @@ const Home = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const images = [img1, img2, img3, img4];
-    const [fade, setFade] = useState(true);
 
     const handlePrevious = () => {
         setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -27,7 +26,7 @@ const Home = () => {
 
     return (
         <>
-            <section className="w-full bg-white py-0.5">
+            <section id="home" className="w-full bg-white py-0.5">
                 <div className="max-w-[100%] mx-auto px-1 flex flex-col md:flex-row items-center relative">
                     <div className="md:w-1/3 md:order-1 order-2">
                         <div className='z-20 md:absolute w-full md:w-1/3 md:top-1/2 md:-translate-y-1/2 md:translate-x-1/6'>

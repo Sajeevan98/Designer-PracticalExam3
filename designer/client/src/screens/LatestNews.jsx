@@ -51,7 +51,7 @@ const newsData = [
 
 const LatestNews = () => {
     return (
-        <div className='md:my-12 px-10'>
+        <div id="news" className='md:my-12 px-10'>
             <Title 
                 title="LATEST NEWS" 
                 subTitle="INTEGER CONGUE ELIT" 

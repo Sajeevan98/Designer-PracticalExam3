@@ -7,7 +7,7 @@ const Welcome = () => {
 
     return (
         <>
-            <section className="w-full bg-white py-10 my-32 flex md:flex-row flex-col justify-around">
+            <section id="welcome" className="w-full bg-white py-10 my-32 flex md:flex-row flex-col justify-around">
                 <div className="md:w-2/5 w-full md:order-1 order-2 justify-end">
                     <div className='relative flex flex-row'>
                         <img src={img2} alt='img_2' className='md:h-[39vh] md:w-[28vh] h-[25vh] w-[35%] translate-y-32 translate-x-10 z-20 opacity-90' />

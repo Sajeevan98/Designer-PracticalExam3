@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { IoMdArrowDropdown } from "react-icons/io";
-import { Link } from 'react-router-dom';
-import { FaBars, FaRegWindowClose  } from "react-icons/fa";
+import { Link } from 'react-scroll';
+import { FaBars, FaRegWindowClose } from "react-icons/fa";
 import { Logo } from './Logo';
+
+const navLinks = [
+    { name: "HOME", hasDropdown: true, items: [{ label: "MAIN", path: "home" }, { label: "WELCOME", path: "welcome" }] },
+    { name: "PAGES", hasDropdown: true, items: [{ label: "TESTIMONIAL", path: "testimonial" }, { label: "PAGE 2", path: "page2" }, { label: "FOOTER", path: "footer" }] },
+    { name: "TRACKING", hasDropdown: false, path: "news" },
+    { name: "SERVICES", hasDropdown: true, items: [{ label: "SHIP SERVICE", path: "service" }, { label: "TRAIN SERVICE", path: "service" }, { label: "DRONE SERVICE", path: "service" }, { label: "TRUCK SERVICE", path: "service" }] },
+    { name: "BLOG", hasDropdown: true, items: [{ label: "SINGLE BLOG", path: "single" }, { label: "BLOG LIST", path: "list" }] },
+];
 
 const Navbar = () => {
 
@@ -10,24 +18,13 @@ const Navbar = () => {
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
 
-    const navLinks = [
-        { name: "HOME", hasDropdown: true, items: ["HOME 1", "HOME 2"] },
-        { name: "PAGES", hasDropdown: true, items: ["PAGE 1", "PAGE 2", "PAGE 3"] },
-        { name: "TRACKING", hasDropdown: false },
-        { name: "SERVICES", hasDropdown: true, items: ["SERVICE 1", "SERVICE 2", "SERVICE 3", "SERVICE 4"] },
-        { name: "BLOG", hasDropdown: true, items: ["BLOG LIST", "SINGLE BLOG"] },
-    ];
-
     return (
         <>
             <header className="bg-white shadow-md md:shadow-none">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                    {/* logo */}
                     <Logo />
-
-                    {/* desktop nav */}
                     <nav className="hidden md:flex items-center space-x-6">
-                        {navLinks.map((link, index) =>
+                        {navLinks && navLinks.map((link, index) =>
                             link.hasDropdown ? (
                                 <div key={index} className="relative group">
                                     <button className="font-medium hover:text-yellow-400 hover:cursor-pointer px-4 py-3 tracking-wider text-base">
@@ -40,10 +37,12 @@ const Navbar = () => {
                                         {link.items.map((item, i) => (
                                             <Link
                                                 key={i}
-                                                to={`/${item.toLowerCase().replace(" ", "-")}`}
-                                                className="block px-4 py-2 hover:bg-yellow-100"
+                                                to={item.path}
+                                                className="block px-4 py-2 hover:bg-yellow-100 hover:cursor-pointer"
+                                                smooth={true}
+                                                duration={500}
                                             >
-                                                {item}
+                                                {item.label}
                                             </Link>
                                         ))}
                                     </div>
@@ -51,8 +50,10 @@ const Navbar = () => {
                             ) : (
                                 <Link
                                     key={index}
-                                    to={`/${link.name.toLowerCase()}`}
-                                    className="font-medium hover:text-yellow-400"
+                                    to={link.path}
+                                    className="font-medium hover:text-yellow-400 hover:cursor-pointer"
+                                    smooth={true}
+                                    duration={500}
                                 >
                                     {link.name}
                                 </Link>
@@ -62,14 +63,14 @@ const Navbar = () => {
                         {/* right buttons */}
                         <div className="flex space-x-2 gap-x-4 ">
                             <Link
-                                to="/quote"
-                                className="px-4 py-3 bg-yellow-400 text-white rounded-sm hover:bg-yellow-500 font-medium text-base"
+                                to="quote"
+                                className="px-4 py-3 bg-yellow-400 text-white rounded-sm hover:bg-yellow-500 font-medium text-base hover:cursor-pointer"
                             >
                                 GET A QUOTE
                             </Link>
                             <Link
                                 to="signin"
-                                className="px-4 py-3 bg-black text-white rounded-sm opacity-100 hover:opacity-85 font-medium text-base"
+                                className="px-4 py-3 bg-black text-white rounded-sm opacity-100 hover:opacity-85 font-medium text-base hover:cursor-pointer"
                             >
                                 SIGN IN
                             </Link>
@@ -78,11 +79,11 @@ const Navbar = () => {
 
                     {/* Mobile togglebar */}
                     <div className="md:hidden">
-                        <button onClick={toggleMenu} className='text-2xl'>{menuOpen?<FaRegWindowClose /> : <FaBars />}</button>
+                        <button onClick={toggleMenu} className='text-2xl'>{menuOpen ? <FaRegWindowClose /> : <FaBars />}</button>
                     </div>
                 </div>
 
-                {/* Mobile Dropdown */}
+
                 {menuOpen && (
                     <div className="md:hidden px-4 pb-4 space-y-2">
                         {navLinks.map((link, idx) =>
@@ -95,10 +96,13 @@ const Navbar = () => {
                                         {link.items.map((item, i) => (
                                             <Link
                                                 key={i}
-                                                to={`/${item.toLowerCase().replace(" ", "-")}`}
+                                                to={item.path}
                                                 className="block px-4 py-2 hover:bg-yellow-100 text-sm"
+                                                smooth={true}
+                                                duration={500}
+                                                onClick={() => setMenuOpen(false)}
                                             >
-                                                {item}
+                                                {item.label}
                                             </Link>
                                         ))}
                                     </div>
@@ -106,8 +110,11 @@ const Navbar = () => {
                             ) : (
                                 <Link
                                     key={idx}
-                                    to={`/${link.name.toLowerCase()}`}
+                                    to={link.path}
                                     className="block px-4 py-2 bg-white rounded font-medium border"
+                                    smooth={true}
+                                    duration={500}
+                                    onClick={() => setMenuOpen(false)}
                                 >
                                     {link.name}
                                 </Link>
@@ -116,13 +123,13 @@ const Navbar = () => {
 
                         <div className="space-y-2 pt-2">
                             <Link
-                                 to="/quote"
+                                to="quote"
                                 className="block w-full text-center py-2 bg-yellow-400 text-white rounded hover:bg-yellow-500 font-medium text-base"
                             >
                                 GET A QUOTE
                             </Link>
                             <Link
-                                 to="signin"
+                                to="signin"
                                 className="block w-full text-center py-2 bg-black text-white rounded-sm opacity-100 hover:opacity-85 font-medium text-base"
                             >
                                 SIGN IN

@@ -59,7 +59,7 @@ const msg = "Our clients trust us for timely, secure deliveries that exceed expe
 const Testimonial = () => {
 
     return (
-        <section className="w-full bg-white py-12 px-0.5">
+        <section id="testimonial" className="w-full bg-white py-12 px-0.5">
             <div className='border-4 border-gray-100 md:px-16 md:py-10 p-10 shadow w-[100%] md:flex'>
                 <div className='flex flex-col items-start md:w-1/2'>
                     <p className='text-2xl font-semibold tracking-tight'>TRUSTED CLIENTS</p>
