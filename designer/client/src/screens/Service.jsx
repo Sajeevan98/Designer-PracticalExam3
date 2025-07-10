@@ -102,8 +102,8 @@ const Service = () => {
                     {/* desktop view */}
                     <div className="hidden md:grid md:grid-cols-2 gap-8 mt-10">
                         {currentServicesDesk.map((service) => (
-                            <div key={service.id} className="flex md:flex-row bg-white shadow-lg w-[100%]">
-                                <img src={service.image} alt={service.title} className="md:w-1/2 md:h-[40vh] object-cover rounded md:mr-4 hover:cursor-pointer hover:scale-105  duration-300 " />
+                            <div key={service.id} className="flex md:flex-row bg-white shadow-lg w-[100%] hover:cursor-pointer hover:scale-105  duration-300">
+                                <img src={service.image} alt={service.title} className="md:w-1/2 md:h-[40vh] object-cover rounded md:mr-4" />
                                 <div className="flex flex-col items-start justify-center md:w-1/2 md:pr-5 p-5 mb-5">
                                     <h3 className="text-lg font-bold">{service.title}</h3>
                                     <p className="text-sm text-gray-600 mt-4">{service.description}</p>

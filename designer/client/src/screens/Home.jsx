@@ -5,7 +5,7 @@ import img3 from '../assets/img/home_3.jpg';
 import img4 from '../assets/img/home_4.jpg';
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 
-const HomeOne = () => {
+const Home = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const images = [img1, img2, img3, img4];
@@ -71,4 +71,4 @@ const HomeOne = () => {
     )
 }
 
-export default HomeOne
+export default Home

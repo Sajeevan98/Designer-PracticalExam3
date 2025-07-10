@@ -1,10 +1,10 @@
-import React from 'react'
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import { MdAddBox } from "react-icons/md";
 import ClientLogo from '../components/ClientLogo';
-import { FaTruckMoving, FaShip, FaBolt, FaBoxes   } from 'react-icons/fa';
+import { FaTruckMoving, FaShip, FaBolt, FaBoxes } from 'react-icons/fa';
 import { GiCommercialAirplane } from "react-icons/gi";
+import { Title } from '../components/Title';
 
 
 const msgList = [
@@ -39,7 +39,7 @@ const clientLogoData = [
     },
     {
         id: 3,
-        icon: <GiCommercialAirplane className='fly-slow' />,
+        icon: <GiCommercialAirplane />,
         text: "FlyExpress"
     },
     {
@@ -49,7 +49,7 @@ const clientLogoData = [
     },
     {
         id: 5,
-        icon: <FaBolt className='bounce-slow'/>,
+        icon: <FaBolt className='bounce-slow' />,
         text: "QuickDrop"
     }
 ];
@@ -105,13 +105,19 @@ const Testimonial = () => {
                     </div>
                 </div>
             </div>
-            <h1 className='md:mt-12 pt-10 px-12 text-3xl font-semibold tracking-tight'>Our Clients</h1>
-            <div className='grid md:grid-cols-5 grid-cols-1 gap-y-10 justify-around border-4 border-gray-100 p-12'>
-                {clientLogoData && clientLogoData.map((logo)=>(
-                    <ClientLogo key={logo.id} icon={logo.icon} text={logo.text}/>
-                ))
-                    
-                }
+            <div className='border-4 border-gray-100 p-15 '>
+                <Title 
+                    title="Our Clients"
+                    // subTitle="Logos of our valuable clients"
+                    // icon={<ImEarth className='text-gray-400'/>}
+                />
+                <div className='grid md:grid-cols-5 grid-cols-1 gap-y-10 justify-around'>
+                    {clientLogoData && clientLogoData.map((logo) => (
+                        <ClientLogo key={logo.id} icon={logo.icon} text={logo.text} />
+                    ))
+
+                    }
+                </div>
             </div>
         </section>
     )
