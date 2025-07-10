@@ -16,7 +16,7 @@
 
 # Setup and Run Instructions
 1. Clone the repository
-- git clone https://github.com/Sajeevan98/.git
+- git clone https://github.com/Sajeevan98/Designer-PracticalExam3.git
 
 2. Frontend Setup
 - Open the client(project) folder in Visual Studio Code
